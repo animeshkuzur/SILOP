@@ -1,0 +1,36 @@
+body {
+  font: 100% Montserrat, sans-serif;
+  background-color: #f8f9fa; }
+
+/* Login Page */
+.login-panel {
+  margin-top: 60px; }
+  .login-panel .login-form {
+    padding: 25px;
+    background-color: #ffffff;
+    margin-top: 30px;
+    border: 1px solid;
+    border-color: #dee2e6;
+    border-radius: 5px; }
+  .login-panel .status {
+    text-align: center; }
+
+/* Dashboard Page */
+nav {
+  border-bottom: 1px solid #dee2e6; }
+  nav .value {
+    text-align: right;
+    font-weight: 400;
+    font-size: 14px; }
+
+.dashboard .room-status {
+  margin-top: 20px; }
+  .dashboard .room-status .row .col-auto {
+    padding: 5px; }
+
+.dashboard .access-panel {
+  margin-top: 20px; }
+  .dashboard .access-panel .body {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px; }

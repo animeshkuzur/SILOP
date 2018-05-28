@@ -1,0 +1,71 @@
+$font-stack:    Montserrat, sans-serif;
+$primary-bg-color: #f8f9fa;
+$primary-fg-color: #ffffff;
+$border-color: #dee2e6;
+$pos-color: #7ED321;
+$neg-color: #FF3100;
+
+body {
+  font: 100% $font-stack;
+  background-color: $primary-bg-color;
+}
+/* Login Page */
+.login-panel{
+	margin-top:60px;
+
+	.logo{
+
+	}
+
+	.login-form{
+		padding: 25px;
+		background-color: $primary-fg-color;
+		margin-top:30px;
+		border:1px solid;
+		border-color: $border-color;
+		border-radius: 5px;	
+	}
+	.status{
+		text-align:center;
+	}
+}
+
+
+/* Dashboard Page */
+nav{
+	border-bottom:1px solid $border-color;
+	.value{
+		text-align:right;
+		font-weight:400;
+		font-size:14px;
+
+		.value-text{
+			
+		}
+}
+}
+.dashboard{
+	.room-status{
+		margin-top:20px;
+		.title{
+
+		}
+		.row{
+			.col-auto{
+				padding:5px;
+			}
+		}
+	}
+	.access-panel{
+		margin-top:20px;
+		.title{
+
+		}
+		.body{
+			border: 1px solid $border-color;
+			border-radius: 5px;
+			padding:15px;
+		}
+	}
+
+}
