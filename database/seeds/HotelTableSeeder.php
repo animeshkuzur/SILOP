@@ -12,7 +12,7 @@ class HotelTableSeeder extends Seeder
     public function run()
     {
         $data = [
-        	['name'=>'Grand Budapest Hotel','location'=>'New Delhi'],
+        	['name'=>'OYO Rooms','location'=>'New Delhi'],
         ];
         DB::table('hotels')->insert($data);
     }

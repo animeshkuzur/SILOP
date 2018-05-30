@@ -19,29 +19,29 @@ class RoomController extends Controller
 	}
 
     public function lock(){
-    	error_reporting(~E_WARNING);
+    	/*error_reporting(~E_WARNING);*/
     	
-    	$server = '192.168.1.1';
+    	$server = '192.168.1.100';
 		$port = 6000;
 		$sock = socket_create(AF_INET, SOCK_DGRAM, 0);
 		socket_sendto($sock, $this->ch1OFF , strlen($this->ch1ON) , 0 , $server , $port);
 		socket_sendto($sock, $this->ch2ON , strlen($this->ch1ON) , 0 , $server , $port);
 		socket_close($sock);
-		$input = 0;
-    	return bin2hex($this->ch1ON[18]);
+		
+		return 0;
     }
 
     public function unlock(){
-    	error_reporting(~E_WARNING);
+    	/*error_reporting(~E_WARNING);*/
     	
-    	$server = '192.168.1.1';
+    	$server = '192.168.1.100';
 		$port = 6000;
 		$sock = socket_create(AF_INET, SOCK_DGRAM, 0);
 		socket_sendto($sock, $this->ch1ON , strlen($this->ch1ON) , 0 , $server , $port);
 		socket_sendto($sock, $this->ch2OFF , strlen($this->ch1ON) , 0 , $server , $port);
 		socket_close($sock);
-		$input = 0;
-    	return bin2hex($this->ch1ON[18]);
+		
+		return 0;
     }
 
     

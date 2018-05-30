@@ -20,6 +20,7 @@ class CreateAccessLogsTable extends Migration
             $table->integer('access_type_id')->unsigned();
             $table->datetime('start_datetime');
             $table->datetime('end_datetime');
+            $table->datetime('timestamp');
             $table->boolean('active');
             $table->boolean('uploaded');
             $table->boolean('approved');

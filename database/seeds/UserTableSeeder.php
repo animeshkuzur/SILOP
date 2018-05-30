@@ -17,15 +17,15 @@ class UserTableSeeder extends Seeder
 	    $role_admin  = Role::where('role', 'admin')->first();
 
 	    $driver = new User();
-	    $driver->name = 'M. Gustave';
-	    $driver->username = 'm.gustave';
+	    $driver->name = 'John Smith';
+	    $driver->username = 'j.smith';
 	    $driver->password = bcrypt('password');
 	    $driver->save();
 	    $driver->roles()->attach($role_employee);
 
 	    $advertiser = new User();
-	    $advertiser->name = 'Zero Moustafa';
-	    $advertiser->username = 'zero.moustafa';
+	    $advertiser->name = 'John Doe';
+	    $advertiser->username = 'j.doe';
 	    $advertiser->password = bcrypt('password');
 	    $advertiser->save();
 	    $advertiser->roles()->attach($role_admin);

@@ -16,6 +16,8 @@ class AccessTypeTableSeeder extends Seeder
         	['type' => 'Guest Extension'],
         	['type' => 'Housekeeping'],
         	['type' => 'Others'],
+            ['type' => 'EmergencyLock'],
+            ['type' => 'EmergencyUnlock'],
         ];
         DB::table('access_types')->insert($data);
     }

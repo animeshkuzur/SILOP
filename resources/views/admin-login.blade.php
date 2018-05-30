@@ -28,7 +28,7 @@
                     <div class="col-auto">
                         <div class="login-form">
                             <div class="title">
-                                <h3>Login</h3>
+                                <h3>Admin Login</h3>
                             </div>
                             @if($errors)
                                 @if(count($errors))
@@ -46,7 +46,7 @@
                                 @endif
                             @endif
                             <hr>
-                            {!! Form::open(array('route' => 'loginAuth','method'=>'POST')) !!}
+                            {!! Form::open(array('route' => 'adminLoginAuth','method'=>'POST')) !!}
                                 <div class="form-group ">
                                     <label for="username">Employee ID</label>
                                     <input type="text" class="form-control" id="username" aria-describedby="emailHelp" name="username" placeholder="Enter Employee ID">

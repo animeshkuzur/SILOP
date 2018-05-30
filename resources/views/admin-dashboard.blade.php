@@ -13,7 +13,7 @@
 
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ url('/admin/dashboard') }}">
                 <img src="{{URL::asset('/assets/logo.png')}}" height="40" alt="">
                 {{ DB::table('hotels')->where('id',1)->get(['name'])->first()->name }} <sup><span class="badge badge-success">Online</span></sup>
             </a>
@@ -55,19 +55,19 @@
                             <div class="row">
                                 <div class="col-auto">
                                     @if($status == 1)
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#roomDetails" id="201">
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#roomDetails">
                                         {{ $room_no }}
                                     </button>
                                     @elseif($status == 2)
-                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#roomDetails" id="201">
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#roomDetails">
                                         {{ $room_no }}
                                     </button>
                                     @elseif($status == 3)
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#roomDetails" id="201">
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#roomDetails">
                                         {{ $room_no }}
                                     </button>
                                     @else
-                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#roomDetails" id="201">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#roomDetails">
                                         {{ $room_no }}
                                     </button>
                                     @endif
@@ -473,7 +473,7 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="title">
-                                        <h3>Access Request Panel</h3>   
+                                        <h3>Generate Report</h3>   
                                     </div>
                                 </div>
                             </div>
@@ -499,7 +499,7 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="body">
-                                        {!! Form::open(array('route' => 'requestAuth','method'=>'POST')) !!}
+                                        {!! Form::open(array('route' => 'report','method'=>'POST')) !!}
                                             <div class="form-group">
                                                 <label for="room_no">Room Number</label>
                                                 <select class="form-control form-control-sm" id="room_no" name="room_no">
@@ -527,82 +527,27 @@
                                                     <option>222</option>
                                                 </select>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="access_type">Access Type</label>
-                                                <select class="form-control form-control-sm" id="access_type" name="access_type">
-                                                    <option value="1">Guest Checkin</option>
-                                                    <option value="2">Guest Extension</option>
-                                                    <option value="3">Housekeeping</option>
-                                                    <option value="4">Others</option>
-
-                                                </select>
-                                            </div>
-                                            <div class="form-group" hidden="hidden">
-                                                <label for="other_at">Other Access Type</label>
-                                                <input type="text" class="form-control form-control-sm" name="other_at" id="other_at" placeholder="Specify Access Type">
-                                            </div>
-                                            <div class="form-group" hidden="hidden">
-                                                <label for="booking_id">Booking ID</label>
-                                                <input type="text" class="form-control form-control-sm" name="booking_id" id="booking_id" placeholder="Booking ID">
-                                            </div>
+                                            
+                                            
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col">
-                                                        <label>Duration</label>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <label for="sdate">From :</label>
-                                                    </div>
-                                                    <div class="col">
-                                                        <input type="text" class="form-control form-control-sm" id="sdate" name="sdate" placeholder="dd-mm-yyyy hh:mm:ss">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <label for="edate">To :</label>
-                                                    </div>
-                                                    <div class="col">
-                                                        <input type="text" class="form-control form-control-sm" id="edate" name="edate" placeholder="dd-mm-yyyy hh:mm:ss">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <button type="submit" class="btn btn-primary btn-sm btn-block">Request Unlock</button>
+                                                        <button type="submit" class="btn btn-primary btn-sm btn-block">Generate Report</button>
                                                     </div>
                                                 </div>
                                                 
                                                 
                                             </div>
+                                            {!! Form::close() !!}
                                             <hr>
-                                        {!! Form::close() !!}
-                                        <div class="row">
-                                        <div class="col">
-                                            {!! Form::open(array('route' => 'emergencyUnlock','method'=>'POST')) !!}
-                                                <div class="form-group">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <button type="submit" class="btn btn-danger btn-sm btn-block">Emergency Unlock</button>
-                                                        </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <a href="{{ url('/admin/report/map') }}" class="btn btn-primary btn-block btn-sm">View Map</a>
                                                     </div>
                                                 </div>
-                                            {!! Form::close() !!}
-                                        </div>
-                                        <div class="col">
-                                            {!! Form::open(array('route' => 'emergencyLock','method'=>'POST')) !!}
-                                                <div class="form-group">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <button type="submit" class="btn btn-success btn-sm btn-block">Emergency Lock</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {!! Form::close() !!}
-                                        </div>
-                                        </div>
+                                            </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -690,18 +635,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="key">
-                                Luminosity :
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="value">
-                                1
-                            </div>
-                        </div>
-                    </div>
                 </div>
               </div>
               <div class="modal-footer">
@@ -714,19 +647,5 @@
         <script src="{{URL::asset('/js/jquery.min.js')}}"></script>
         <script src="{{URL::asset('/js/popper.min.js')}}"></script>
         <script src="{{URL::asset('/js/bootstrap.min.js')}}"></script>
-        <script type="text/javascript">
-            /*var interval = setInterval(function(){
-                $.ajax({
-                    type:"get",
-                    url:"{{ url('/getstatus') }}",
-                    datatype:"json",
-                    success:function(data){
-                        console.log(data);
-                        
-
-                    }
-                });
-            }, 2000);*/
-        </script>
     </body>
 </html>
